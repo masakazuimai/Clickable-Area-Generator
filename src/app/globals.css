@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "BIZ UDPMincho", "Noto Serif JP", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-bg: #faf8f3;
+  --color-bg-secondary: #f5f2eb;
+  --color-surface: #fffffd;
+  --color-surface-hover: #f0ede5;
+  --color-surface-active: #e8e4da;
+  --color-border: #d4cfc4;
+  --color-border-hover: #b8b2a4;
+  --color-text: #111111;
+  --color-text-secondary: #4a5568;
+  --color-text-tertiary: #5a6a7e;
+  --color-accent: #3a4f66;
+  --color-accent-hover: #4a6178;
+  --color-accent-muted: rgba(58, 79, 102, 0.1);
+  --color-accent-ring: rgba(58, 79, 102, 0.25);
+  --color-orange: #8a5a5a;
+  --color-orange-muted: rgba(138, 90, 90, 0.1);
+  --color-green: #3a7a5a;
+  --color-green-muted: rgba(58, 122, 90, 0.1);
+  --color-red: #9a4040;
+  --color-red-muted: rgba(154, 64, 64, 0.1);
+}
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-muted);
+    color: var(--color-accent);
+  }
+
+  input::placeholder {
+    color: var(--color-text-tertiary);
+  }
+}
+
+/* グレインテクスチャ */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  z-index: 50;
+}
+
+/* チェッカーボード背景 */
+.checkerboard {
+  background-color: #eae7df;
+  background-image:
+    linear-gradient(45deg, #ddd9cf 25%, transparent 25%),
+    linear-gradient(-45deg, #ddd9cf 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #ddd9cf 75%),
+    linear-gradient(-45deg, transparent 75%, #ddd9cf 75%);
+  background-size: 16px 16px;
+  background-position:
+    0 0,
+    0 8px,
+    8px -8px,
+    -8px 0px;
+}
+
+/* スクロールバー */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-hover);
+}

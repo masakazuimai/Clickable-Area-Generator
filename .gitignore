@@ -1,0 +1,27 @@
+# 依存関係
+node_modules/
+
+# ビルド出力
+.next/
+out/
+
+# 環境変数
+.env
+.env.local
+.env.production
+.env.development
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# デバッグ
+npm-debug.log*
