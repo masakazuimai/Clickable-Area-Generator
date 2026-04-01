@@ -240,14 +240,24 @@ export default function Home() {
           <p className="text-base text-text-tertiary">
             © 2026 Clickable Area Generator | Created by <a href="https://codequest.work/" target="_blank" rel="noopener" className="hover:text-accent transition-colors">CodeQuest</a>
           </p>
-          <a
-            href="https://codequest.work/tag/generator/"
-            target="_blank"
-            rel="noopener"
-            className="text-base text-text-secondary hover:text-accent transition-colors"
-          >
-            その他のジェネレーター →
-          </a>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://seo.codequest.work/ja"
+              target="_blank"
+              rel="noopener"
+              className="text-base text-text-secondary hover:text-accent transition-colors"
+            >
+              SEO CHECKはこちら →
+            </a>
+            <a
+              href="https://codequest.work/tag/generator/"
+              target="_blank"
+              rel="noopener"
+              className="text-base text-text-secondary hover:text-accent transition-colors"
+            >
+              その他のジェネレーター →
+            </a>
+          </div>
         </div>
       </footer>
     </div>
