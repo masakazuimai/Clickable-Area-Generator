@@ -91,7 +91,7 @@ const jsonLd = {
           "@type": "ListItem",
           position: 2,
           name: "ジェネレーター",
-          item: "https://codequest.work/tag/generator/",
+          item: "https://codequest.work/category/generator/",
         },
         {
           "@type": "ListItem",
@@ -183,7 +183,7 @@ export default function RootLayout({
               <a href="https://seo.codequest.work/ja" target="_blank" rel="noopener" className="text-base text-text-secondary hover:text-accent transition-colors">
                 SEO CHECKはこちら →
               </a>
-              <a href="https://codequest.work/tag/generator/" target="_blank" rel="noopener" className="text-base text-text-secondary hover:text-accent transition-colors">
+              <a href="https://codequest.work/category/generator/" target="_blank" rel="noopener" className="text-base text-text-secondary hover:text-accent transition-colors">
                 その他のジェネレーター →
               </a>
             </div>
