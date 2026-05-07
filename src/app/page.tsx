@@ -7,6 +7,7 @@ import { CanvasEditor } from "@/components/canvas-editor";
 import { AreaList } from "@/components/area-list";
 import { CodeOutput } from "@/components/code-output";
 import { Toolbar } from "@/components/toolbar";
+import { AdUnit } from "@/components/ad-unit";
 
 type ImageState = {
   readonly src: string;
@@ -233,6 +234,11 @@ export default function Home() {
           </div>
         )}
       </main>
+
+      {/* 広告 */}
+      <div className="max-w-[1440px] mx-auto px-6 py-6">
+        <AdUnit />
+      </div>
 
       {/* フッター */}
       <footer className="border-t border-border py-4 mt-auto">
