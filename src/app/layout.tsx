@@ -165,7 +165,15 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="grain bg-bg min-h-screen font-sans text-text">{children}</body>
+      <body className="grain bg-bg min-h-screen font-sans text-text">
+        {children}
+        <div
+          className="max-w-[1440px] mx-auto px-6 py-6"
+          dangerouslySetInnerHTML={{
+            __html: `<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4871781946658288" data-ad-slot="7493033745" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>`,
+          }}
+        />
+      </body>
     </html>
   );
 }
