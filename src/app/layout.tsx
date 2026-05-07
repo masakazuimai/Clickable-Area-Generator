@@ -167,6 +167,28 @@ export default function RootLayout({
       </head>
       <body className="grain bg-bg min-h-screen font-sans text-text">
         {children}
+        <div
+          className="max-w-[1440px] mx-auto px-6 py-6 text-center"
+          dangerouslySetInnerHTML={{
+            __html: `<ins class="adsbygoogle" style="display:block;text-align:center" data-ad-client="ca-pub-4871781946658288" data-ad-slot="7493033745" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>`,
+          }}
+        />
+        <footer className="border-t border-border py-4 mt-auto">
+          <div className="max-w-[1440px] mx-auto px-6 flex items-center justify-between">
+            <p className="text-base text-text-tertiary">
+              © 2026 Clickable Area Generator | Created by{" "}
+              <a href="https://codequest.work/" target="_blank" rel="noopener" className="hover:text-accent transition-colors">CodeQuest</a>
+            </p>
+            <div className="flex items-center gap-4">
+              <a href="https://seo.codequest.work/ja" target="_blank" rel="noopener" className="text-base text-text-secondary hover:text-accent transition-colors">
+                SEO CHECKはこちら →
+              </a>
+              <a href="https://codequest.work/tag/generator/" target="_blank" rel="noopener" className="text-base text-text-secondary hover:text-accent transition-colors">
+                その他のジェネレーター →
+              </a>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );
