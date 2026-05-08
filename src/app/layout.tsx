@@ -3,24 +3,12 @@ import "./globals.css";
 
 const siteUrl = "https://codequest.work/generator/clickable-area/";
 const siteName = "Clickable Area Generator | クリッカブルエリアジェネレーター";
-const description =
-  "画像にクリッカブルエリアを設定してレスポンシブ対応HTMLコードを自動生成する無料ツール。矩形・円形のエリア指定、ドラッグ操作での移動・リサイズ、CSS方式のレスポンシブ出力に対応。アカウント登録不要。";
+const description = "画像にクリッカブルエリアを設定してレスポンシブ対応HTMLコードを自動生成する無料ツール。矩形・円形のエリア指定、ドラッグ操作での移動・リサイズ、CSS方式のレスポンシブ出力に対応。アカウント登録不要。";
 
 export const metadata: Metadata = {
   title: siteName,
   description,
-  keywords: [
-    "クリッカブルエリア",
-    "イメージマップ",
-    "画像マップ",
-    "ジェネレーター",
-    "image map generator",
-    "clickable area",
-    "レスポンシブ",
-    "HTML",
-    "CSS",
-    "無料ツール",
-  ],
+  keywords: ["クリッカブルエリア", "イメージマップ", "画像マップ", "ジェネレーター", "image map generator", "clickable area", "レスポンシブ", "HTML", "CSS", "無料ツール"],
   authors: [{ name: "CodeQuest", url: "https://codequest.work/" }],
   creator: "CodeQuest",
   publisher: "CodeQuest",
@@ -63,15 +51,7 @@ const jsonLd = {
         price: "0",
         priceCurrency: "JPY",
       },
-      featureList: [
-        "画像へのクリッカブルエリア設定",
-        "矩形・円形のエリア指定",
-        "ドラッグ操作でのエリア移動・リサイズ",
-        "CSS方式のレスポンシブ対応コード出力",
-        "HTML Map形式のコード出力",
-        "画像サイズのリサイズ（アスペクト比固定）",
-        "ワンクリックコピー",
-      ],
+      featureList: ["画像へのクリッカブルエリア設定", "矩形・円形のエリア指定", "ドラッグ操作でのエリア移動・リサイズ", "CSS方式のレスポンシブ対応コード出力", "HTML Map形式のコード出力", "画像サイズのリサイズ（アスペクト比固定）", "ワンクリックコピー"],
       creator: {
         "@type": "Organization",
         name: "CodeQuest",
@@ -149,10 +129,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&family=Noto+Serif+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-          rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&family=Noto+Serif+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4871781946658288" crossOrigin="anonymous" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Z6M3CJEV3" />
         <script
@@ -160,10 +137,7 @@ export default function RootLayout({
             __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7Z6M3CJEV3');`,
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body className="grain bg-bg min-h-screen font-sans text-text">
         {children}
@@ -177,7 +151,9 @@ export default function RootLayout({
           <div className="max-w-[1440px] mx-auto px-6 flex items-center justify-between">
             <p className="text-base text-text-tertiary">
               © 2026 Clickable Area Generator | Created by{" "}
-              <a href="https://codequest.work/" target="_blank" rel="noopener" className="hover:text-accent transition-colors">CodeQuest</a>
+              <a href="https://codequest.work/" target="_blank" rel="noopener" className="hover:text-accent transition-colors">
+                CodeQuest.work
+              </a>
             </p>
             <div className="flex items-center gap-4">
               <a href="https://seo.codequest.work/ja" target="_blank" rel="noopener" className="text-base text-text-secondary hover:text-accent transition-colors">
