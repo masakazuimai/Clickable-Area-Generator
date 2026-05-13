@@ -142,9 +142,10 @@ export default function RootLayout({
       <body className="grain bg-bg min-h-screen font-sans text-text">
         {children}
         <div
-          className="max-w-[1440px] mx-auto px-6 py-6 text-center"
+          className="mx-auto px-6 py-6"
+          style={{ maxWidth: 728 }}
           dangerouslySetInnerHTML={{
-            __html: `<ins class="adsbygoogle" style="display:block;text-align:center" data-ad-client="ca-pub-4871781946658288" data-ad-slot="7493033745" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>`,
+            __html: `<ins class="adsbygoogle" style="display:block;max-width:728px;max-height:90px" data-ad-client="ca-pub-4871781946658288" data-ad-slot="7493033745" data-ad-format="horizontal" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>`,
           }}
         />
         <footer className="border-t border-border py-4 mt-auto">
