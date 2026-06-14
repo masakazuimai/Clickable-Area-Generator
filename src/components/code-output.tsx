@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react";
 import type { Area } from "@/types/area";
+import type { Dict } from "@/i18n/messages";
 
 type OutputMode = "css" | "map";
 
@@ -9,6 +10,7 @@ type Props = {
   readonly areas: readonly Area[];
   readonly imageWidth: number;
   readonly imageHeight: number;
+  readonly dict: Dict;
 };
 
 function toPercent(value: number, base: number): string {
@@ -72,14 +74,14 @@ ${areaLines}
 </map>`;
 }
 
-const modes = [
-  { value: "css" as const, label: "CSS（レスポンシブ）" },
-  { value: "map" as const, label: "HTML Map" },
-] as const;
-
-export function CodeOutput({ areas, imageWidth, imageHeight }: Props) {
+export function CodeOutput({ areas, imageWidth, imageHeight, dict }: Props) {
   const [copied, setCopied] = useState(false);
   const [mode, setMode] = useState<OutputMode>("css");
+
+  const modes = [
+    { value: "css" as const, label: dict.codeOutput.cssMode },
+    { value: "map" as const, label: dict.codeOutput.mapMode },
+  ];
 
   const code =
     mode === "css"

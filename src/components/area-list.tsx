@@ -1,6 +1,7 @@
 "use client";
 
 import type { Area } from "@/types/area";
+import type { Dict } from "@/i18n/messages";
 
 type Props = {
   readonly areas: readonly Area[];
@@ -8,6 +9,7 @@ type Props = {
   readonly onSelect: (id: string) => void;
   readonly onUpdate: (id: string, updates: { href?: string; alt?: string }) => void;
   readonly onDelete: (id: string) => void;
+  readonly dict: Dict;
 };
 
 function AreaItem({
@@ -17,6 +19,7 @@ function AreaItem({
   onSelect,
   onUpdate,
   onDelete,
+  dict,
 }: {
   readonly area: Area;
   readonly index: number;
@@ -24,6 +27,7 @@ function AreaItem({
   readonly onSelect: () => void;
   readonly onUpdate: (updates: { href?: string; alt?: string }) => void;
   readonly onDelete: () => void;
+  readonly dict: Dict;
 }) {
   const isRect = area.shape === "rect";
 
@@ -58,7 +62,7 @@ function AreaItem({
                 <circle cx="12" cy="12" r="8" strokeWidth={2.5} />
               </svg>
             )}
-            {isRect ? "矩形" : "円形"}
+            {isRect ? dict.toolbar.rect : dict.toolbar.circle}
           </span>
           <span className="text-base text-text-tertiary font-mono">
             {isRect
@@ -72,7 +76,7 @@ function AreaItem({
             onDelete();
           }}
           className="p-1 rounded text-text-tertiary hover:text-red hover:bg-red-muted transition-all"
-          title="削除"
+          title={dict.areaList.delete}
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -87,7 +91,7 @@ function AreaItem({
           value={area.href}
           onChange={(e) => onUpdate({ href: e.target.value })}
           onClick={(e) => e.stopPropagation()}
-          placeholder="URL を入力..."
+          placeholder={dict.areaList.urlPlaceholder}
           className="w-full rounded-md border border-border bg-bg px-3 py-1.5 text-base text-text placeholder:text-text-tertiary focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent-ring transition-all"
         />
         <input
@@ -95,7 +99,7 @@ function AreaItem({
           value={area.alt}
           onChange={(e) => onUpdate({ alt: e.target.value })}
           onClick={(e) => e.stopPropagation()}
-          placeholder="Alt テキスト..."
+          placeholder={dict.areaList.altPlaceholder}
           className="w-full rounded-md border border-border bg-bg px-3 py-1.5 text-base text-text placeholder:text-text-tertiary focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent-ring transition-all"
         />
       </div>
@@ -109,6 +113,7 @@ export function AreaList({
   onSelect,
   onUpdate,
   onDelete,
+  dict,
 }: Props) {
   if (areas.length === 0) {
     return (
@@ -119,7 +124,7 @@ export function AreaList({
           </svg>
         </div>
         <p className="text-base text-text-secondary">
-          画像上でドラッグしてエリアを作成
+          {dict.areaList.empty}
         </p>
       </div>
     );
@@ -136,6 +141,7 @@ export function AreaList({
           onSelect={() => onSelect(area.id)}
           onUpdate={(updates) => onUpdate(area.id, updates)}
           onDelete={() => onDelete(area.id)}
+          dict={dict}
         />
       ))}
     </div>

@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react";
 import type { ShapeType } from "@/types/area";
+import type { Dict } from "@/i18n/messages";
 
 type Props = {
   readonly shapeType: ShapeType;
@@ -12,28 +13,21 @@ type Props = {
   readonly imageHeight: number;
   readonly aspectRatio: number;
   readonly onImageResize: (width: number, height: number) => void;
+  readonly dict: Dict;
 };
 
-const shapes = [
-  {
-    type: "rect" as const,
-    label: "矩形",
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <rect x="4" y="4" width="16" height="16" rx="1" strokeWidth={2} />
-      </svg>
-    ),
-  },
-  {
-    type: "circle" as const,
-    label: "円形",
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="8" strokeWidth={2} />
-      </svg>
-    ),
-  },
-] as const;
+const shapeIcons = {
+  rect: (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <rect x="4" y="4" width="16" height="16" rx="1" strokeWidth={2} />
+    </svg>
+  ),
+  circle: (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8" strokeWidth={2} />
+    </svg>
+  ),
+} as const;
 
 export function Toolbar({
   shapeType,
@@ -43,7 +37,12 @@ export function Toolbar({
   imageHeight,
   aspectRatio,
   onImageResize,
+  dict,
 }: Props) {
+  const shapes = [
+    { type: "rect" as const, label: dict.toolbar.rect, icon: shapeIcons.rect },
+    { type: "circle" as const, label: dict.toolbar.circle, icon: shapeIcons.circle },
+  ];
   const [widthInput, setWidthInput] = useState(String(imageWidth));
   const [heightInput, setHeightInput] = useState(String(imageHeight));
 
@@ -107,14 +106,14 @@ export function Toolbar({
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
         </svg>
-        画像を変更
+        {dict.toolbar.changeImage}
       </button>
 
       <div className="w-px h-6 bg-border" />
 
       {/* 画像サイズ変更 */}
       <div className="flex items-center gap-2">
-        <span className="text-base font-medium text-text-secondary">画像サイズ</span>
+        <span className="text-base font-medium text-text-secondary">{dict.toolbar.imageSize}</span>
         <div className="flex items-center gap-1.5">
           <input
             type="number"

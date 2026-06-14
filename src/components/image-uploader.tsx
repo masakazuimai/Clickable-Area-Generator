@@ -1,12 +1,14 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
+import type { Dict } from "@/i18n/messages";
 
 type Props = {
   readonly onImageLoad: (src: string, width: number, height: number) => void;
+  readonly dict: Dict;
 };
 
-export function ImageUploader({ onImageLoad }: Props) {
+export function ImageUploader({ onImageLoad, dict }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isDragging, setIsDragging] = useState(false);
 
@@ -87,11 +89,11 @@ export function ImageUploader({ onImageLoad }: Props) {
 
       <div className="text-center">
         <p className="text-lg font-semibold text-text mb-1">
-          {isDragging ? "ここにドロップ" : "画像をアップロード"}
+          {isDragging ? dict.uploader.dropping : dict.uploader.idle}
         </p>
         <p className="text-base text-text-secondary">
-          ドラッグ&ドロップ、または
-          <span className="text-accent font-medium"> ファイルを選択</span>
+          {dict.uploader.hint}
+          <span className="text-accent font-medium">{dict.uploader.choose}</span>
         </p>
       </div>
 

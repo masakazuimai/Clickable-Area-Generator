@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState, useEffect } from "react";
 import type { Area, ShapeType } from "@/types/area";
+import type { Dict } from "@/i18n/messages";
 
 type Props = {
   readonly imageSrc: string;
@@ -14,6 +15,7 @@ type Props = {
   readonly onSelectArea: (id: string | null) => void;
   readonly onUpdateAreaGeometry: (id: string, geometry: Partial<Area>) => void;
   readonly onImageResize: (width: number, height: number) => void;
+  readonly dict: Dict;
 };
 
 type Interaction =
@@ -144,6 +146,7 @@ export function CanvasEditor({
   onSelectArea,
   onUpdateAreaGeometry,
   onImageResize,
+  dict,
 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -627,7 +630,7 @@ export function CanvasEditor({
           onPointerUp={handleResizeEnd}
           onPointerCancel={handleResizeEnd}
           className="absolute bottom-0.5 right-0.5 w-8 h-8 cursor-nwse-resize flex items-center justify-center group z-10 rounded-tl-md bg-accent hover:bg-accent-hover transition-colors shadow-md"
-          title="ドラッグでリサイズ"
+          title={dict.toolbar.resizeHandle}
         >
           <svg
             className="w-4 h-4 text-white"

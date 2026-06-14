@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react";
 import type { Area, ShapeType } from "@/types/area";
+import type { Dict } from "@/i18n/messages";
 import { ImageUploader } from "@/components/image-uploader";
 import { CanvasEditor } from "@/components/canvas-editor";
 import { AreaList } from "@/components/area-list";
@@ -16,7 +17,11 @@ type ImageState = {
   readonly originalHeight: number;
 };
 
-export default function Home() {
+type Props = {
+  readonly dict: Dict;
+};
+
+export function GeneratorApp({ dict }: Props) {
   const [image, setImage] = useState<ImageState | null>(null);
   const [areas, setAreas] = useState<readonly Area[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -111,10 +116,10 @@ export default function Home() {
       <header className="border-b border-border bg-bg-secondary">
         <div className="max-w-[1440px] mx-auto px-6 py-5 text-center">
           <h1 className="text-2xl font-bold text-text">
-            Clickable Area Generator
+            {dict.header.title}
           </h1>
           <p className="text-base text-text-secondary mt-1">
-            画像にクリッカブルエリアを設定してHTMLコードを生成
+            {dict.header.subtitle}
           </p>
         </div>
       </header>
@@ -125,36 +130,20 @@ export default function Home() {
           <div className="max-w-2xl mx-auto px-6 pt-24 pb-16">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-text mb-3">
-                画像マップを作成
+                {dict.intro.title}
               </h2>
               <p className="text-lg text-text-secondary">
-                画像をアップロードして、クリッカブルなエリアを描画しましょう
+                {dict.intro.subtitle}
               </p>
             </div>
-            <ImageUploader onImageLoad={handleImageLoad} />
+            <ImageUploader onImageLoad={handleImageLoad} dict={dict} />
 
             {/* ステップ説明 */}
             <div className="mt-12 grid grid-cols-3 gap-8">
-              {[
-                {
-                  step: "01",
-                  title: "画像をアップロード",
-                  desc: "PNG, JPG, SVG など",
-                },
-                {
-                  step: "02",
-                  title: "エリアを描画",
-                  desc: "矩形・円形で指定",
-                },
-                {
-                  step: "03",
-                  title: "コードを取得",
-                  desc: "コピーして貼り付け",
-                },
-              ].map(({ step, title, desc }) => (
-                <div key={step} className="text-center">
+              {dict.intro.steps.map(({ title, desc }, i) => (
+                <div key={title} className="text-center">
                   <span className="inline-block text-base font-mono font-medium text-accent mb-2">
-                    {step}
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="text-base font-semibold text-text">{title}</p>
                   <p className="text-base text-text-tertiary mt-0.5">{desc}</p>
@@ -175,6 +164,7 @@ export default function Home() {
                 imageHeight={image.height}
                 aspectRatio={image.originalWidth / image.originalHeight}
                 onImageResize={handleImageResize}
+                dict={dict}
               />
             </div>
 
@@ -194,6 +184,7 @@ export default function Home() {
                       onSelectArea={setSelectedId}
                       onUpdateAreaGeometry={handleUpdateAreaGeometry}
                       onImageResize={handleImageResize}
+                      dict={dict}
                     />
                   </div>
                 </div>
@@ -203,6 +194,7 @@ export default function Home() {
                     areas={areas}
                     imageWidth={image.width}
                     imageHeight={image.height}
+                    dict={dict}
                   />
                 )}
               </div>
@@ -212,7 +204,7 @@ export default function Home() {
                 <div className="rounded-xl border border-border bg-bg-secondary overflow-hidden">
                   <div className="px-4 py-3 border-b border-border flex items-center justify-between">
                     <h2 className="text-base font-semibold text-text">
-                      エリア一覧
+                      {dict.areaList.title}
                     </h2>
                     <span className="text-base tabular-nums font-medium text-text-tertiary bg-surface px-2 py-0.5 rounded-md">
                       {areas.length}
@@ -225,6 +217,7 @@ export default function Home() {
                       onSelect={setSelectedId}
                       onUpdate={handleUpdateArea}
                       onDelete={handleDeleteArea}
+                      dict={dict}
                     />
                   </div>
                 </div>
@@ -233,7 +226,6 @@ export default function Home() {
           </div>
         )}
       </main>
-
     </div>
   );
 }
