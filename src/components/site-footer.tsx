@@ -1,12 +1,11 @@
 import type { Dict, Lang } from "@/i18n/messages";
-import { switchHref } from "@/i18n/site-meta";
 
 type Props = {
   readonly lang: Lang;
   readonly dict: Dict;
 };
 
-// 言語別のフッター。SEO CHECK リンクと言語切替リンクは lang で出し分け。
+// 言語別のフッター。SEO CHECK リンクは lang で出し分け（言語切替リンクはヘッダーに移動）。
 export function SiteFooter({ lang, dict }: Props) {
   const seoCheckUrl = lang === "ja" ? "https://seo.codequest.work/ja" : "https://seo.codequest.work/en";
 
@@ -20,9 +19,6 @@ export function SiteFooter({ lang, dict }: Props) {
           </a>
         </p>
         <div className="flex items-center gap-4">
-          <a href={switchHref[lang]} className="text-base text-text-secondary hover:text-accent transition-colors">
-            {dict.footer.switchLabel}
-          </a>
           <a href={seoCheckUrl} target="_blank" rel="noopener" className="text-base text-text-secondary hover:text-accent transition-colors">
             {dict.footer.seoLink}
           </a>

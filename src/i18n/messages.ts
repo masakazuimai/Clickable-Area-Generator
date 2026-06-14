@@ -7,6 +7,7 @@ export type Dict = {
   readonly header: {
     readonly title: string;
     readonly subtitle: string;
+    readonly switchLabel: string;
   };
   readonly intro: {
     readonly title: string;
@@ -40,7 +41,6 @@ export type Dict = {
   readonly footer: {
     readonly seoLink: string;
     readonly generatorsLink: string;
-    readonly switchLabel: string;
   };
 };
 
@@ -49,6 +49,7 @@ export const messages: Record<Lang, Dict> = {
     header: {
       title: "Clickable Area Generator",
       subtitle: "画像にクリッカブルエリアを設定してHTMLコードを生成",
+      switchLabel: "English →",
     },
     intro: {
       title: "画像マップを作成",
@@ -84,15 +85,15 @@ export const messages: Record<Lang, Dict> = {
       mapMode: "HTML Map",
     },
     footer: {
-      seoLink: "SEO CHECKはこちら →",
+      seoLink: "CodeQuest.work SEO",
       generatorsLink: "その他のジェネレーター →",
-      switchLabel: "English →",
     },
   },
   en: {
     header: {
       title: "Image Map Generator",
       subtitle: "Draw clickable areas on your image and generate responsive HTML",
+      switchLabel: "日本語 →",
     },
     intro: {
       title: "Create an image map",
@@ -128,9 +129,8 @@ export const messages: Record<Lang, Dict> = {
       mapMode: "HTML Map",
     },
     footer: {
-      seoLink: "Try SEO CHECK →",
+      seoLink: "CodeQuest.work SEO",
       generatorsLink: "More generators →",
-      switchLabel: "日本語 →",
     },
   },
 };

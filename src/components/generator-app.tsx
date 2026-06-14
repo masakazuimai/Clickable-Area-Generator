@@ -2,7 +2,8 @@
 
 import { useState, useCallback } from "react";
 import type { Area, ShapeType } from "@/types/area";
-import type { Dict } from "@/i18n/messages";
+import type { Dict, Lang } from "@/i18n/messages";
+import { switchHref } from "@/i18n/site-meta";
 import { ImageUploader } from "@/components/image-uploader";
 import { CanvasEditor } from "@/components/canvas-editor";
 import { AreaList } from "@/components/area-list";
@@ -19,9 +20,10 @@ type ImageState = {
 
 type Props = {
   readonly dict: Dict;
+  readonly lang: Lang;
 };
 
-export function GeneratorApp({ dict }: Props) {
+export function GeneratorApp({ dict, lang }: Props) {
   const [image, setImage] = useState<ImageState | null>(null);
   const [areas, setAreas] = useState<readonly Area[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -114,13 +116,19 @@ export function GeneratorApp({ dict }: Props) {
     <div className="min-h-screen flex flex-col">
       {/* ヘッダー */}
       <header className="border-b border-border bg-bg-secondary">
-        <div className="max-w-[1440px] mx-auto px-6 py-5 text-center">
+        <div className="relative max-w-[1440px] mx-auto px-6 py-5 text-center">
           <h1 className="text-2xl font-bold text-text">
             {dict.header.title}
           </h1>
           <p className="text-base text-text-secondary mt-1">
             {dict.header.subtitle}
           </p>
+          <a
+            href={switchHref[lang]}
+            className="absolute right-6 top-1/2 -translate-y-1/2 text-base text-text-secondary hover:text-accent transition-colors"
+          >
+            {dict.header.switchLabel}
+          </a>
         </div>
       </header>
 
