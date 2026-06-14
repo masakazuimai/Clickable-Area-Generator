@@ -25,7 +25,7 @@ export default function JaLayout({
       </head>
       <body className="grain bg-bg min-h-screen font-sans text-text">
         {children}
-        <div className="mx-auto max-w-[1440px] px-6 py-6">
+        <div className="mx-auto max-w-[728px] px-6 py-6">
           <AdUnit />
         </div>
         <SiteFooter lang={lang} dict={messages[lang]} />
