@@ -3,7 +3,7 @@ import "../globals.css";
 import { messages } from "@/i18n/messages";
 import { buildMetadata, buildJsonLd } from "@/i18n/site-meta";
 import { SiteScripts } from "@/components/site-scripts";
-import { AdBanner } from "@/components/ad-banner";
+import { AdUnit } from "@/components/ad-unit";
 import { SiteFooter } from "@/components/site-footer";
 
 const lang = "ja" as const;
@@ -25,7 +25,9 @@ export default function JaLayout({
       </head>
       <body className="grain bg-bg min-h-screen font-sans text-text">
         {children}
-        <AdBanner />
+        <div className="mx-auto max-w-[1440px] px-6 py-6">
+          <AdUnit />
+        </div>
         <SiteFooter lang={lang} dict={messages[lang]} />
       </body>
     </html>
