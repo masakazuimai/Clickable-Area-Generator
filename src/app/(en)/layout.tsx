@@ -25,7 +25,7 @@ export default function EnLayout({
       </head>
       <body className="grain bg-bg min-h-screen font-sans text-text">
         {children}
-        <div className="mx-auto max-w-[728px] px-6 py-6">
+        <div className="mx-auto min-h-[90px] max-w-[728px] py-6">
           <AdUnit />
         </div>
         <SiteFooter lang={lang} dict={messages[lang]} />
