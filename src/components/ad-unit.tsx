@@ -6,7 +6,7 @@ export function AdUnit() {
         style={{ display: "block" }}
         data-ad-client="ca-pub-4871781946658288"
         data-ad-slot="7493033745"
-        data-ad-format="auto"
+        data-ad-format="horizontal"
         data-full-width-responsive="true"
       />
       <script
