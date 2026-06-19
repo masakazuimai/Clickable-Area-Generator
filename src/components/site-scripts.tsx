@@ -4,7 +4,7 @@ export function SiteScripts() {
   return (
     <>
       <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&family=Noto+Serif+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-      <script defer src="https://codequest.work/generator/_shared/adsense.js" />
+      <script defer src="https://codequest.work/generator/_shared/adsense.js?v=20260619b" />
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Z6M3CJEV3" />
       <script
         dangerouslySetInnerHTML={{
