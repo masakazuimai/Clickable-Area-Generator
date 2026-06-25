@@ -19,13 +19,11 @@ export function AdUnit() {
 
   return (
     <ins
-      className="adsbygoogle"
+      className="adsbygoogle ad-banner"
       ref={adRef}
-      style={{ display: "block" }}
+      style={{ display: "inline-block" }}
       data-ad-client="ca-pub-4871781946658288"
       data-ad-slot="4138074609"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
     />
   );
 }
