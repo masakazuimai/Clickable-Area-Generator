@@ -141,7 +141,7 @@ function DataTable({ columns, rows }: { columns: readonly string[]; rows: readon
         <thead>
           <tr className="bg-bg-secondary">
             {columns.map((col) => (
-              <th key={col} className="px-4 py-3 text-left font-semibold text-text border-b border-border">
+              <th key={col} className="px-4 py-3 text-left font-semibold text-text border-b border-border whitespace-nowrap">
                 {col}
               </th>
             ))}
