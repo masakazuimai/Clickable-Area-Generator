@@ -37,10 +37,9 @@ type SeoContent = {
   readonly featureList: readonly string[];
   readonly breadcrumbGenerators: string;
   readonly breadcrumbCurrent: string;
-  readonly faq: readonly { readonly q: string; readonly a: string }[];
 };
 
-const seo: Record<Lang, SeoContent> = {
+export const seo: Record<Lang, SeoContent> = {
   ja: {
     siteName: "Clickable Area Generator | クリッカブルエリアジェネレーター",
     description:
@@ -51,24 +50,6 @@ const seo: Record<Lang, SeoContent> = {
     featureList: ["画像へのクリッカブルエリア設定", "矩形・円形のエリア指定", "ドラッグ操作でのエリア移動・リサイズ", "CSS方式のレスポンシブ対応コード出力", "HTML Map形式のコード出力", "画像サイズのリサイズ（アスペクト比固定）", "ワンクリックコピー"],
     breadcrumbGenerators: "ジェネレーター",
     breadcrumbCurrent: "Clickable Area Generator",
-    faq: [
-      {
-        q: "クリッカブルエリアジェネレーターとは？",
-        a: "画像上にクリック可能な領域（リンクエリア）を視覚的に設定し、レスポンシブ対応のHTMLコードを自動生成する無料Webツールです。",
-      },
-      {
-        q: "レスポンシブ対応のクリッカブルエリアはどう実装しますか？",
-        a: "従来のHTML map要素はピクセル固定のためレスポンシブ非対応です。本ツールではposition: absoluteとパーセント指定のCSS方式でコードを出力するため、画像が縮小されてもクリック領域が追従します。",
-      },
-      {
-        q: "対応している画像形式は？",
-        a: "PNG、JPG、SVG、WebPなど、ブラウザが表示可能なすべての画像形式に対応しています。",
-      },
-      {
-        q: "エリアの形状は何が使えますか？",
-        a: "矩形（rect）と円形（circle）の2種類に対応しています。ドラッグ操作で描画し、作成後も移動・リサイズが可能です。",
-      },
-    ],
   },
   en: {
     siteName: "Free Image Map Generator – Responsive HTML, No Coding",
@@ -80,24 +61,6 @@ const seo: Record<Lang, SeoContent> = {
     featureList: ["Draw clickable areas on any image", "Rectangle and circle shapes", "Move and resize areas by dragging", "Responsive CSS-based code output", "HTML image map (<map>) output", "Resize the image with a locked aspect ratio", "One-click copy"],
     breadcrumbGenerators: "Generators",
     breadcrumbCurrent: "Image Map Generator",
-    faq: [
-      {
-        q: "What is an image map generator?",
-        a: "An image map generator is a free web tool that lets you visually draw clickable areas (links) on an image and exports the responsive HTML code automatically.",
-      },
-      {
-        q: "How do I make a responsive image map?",
-        a: "Traditional HTML <map> elements use fixed pixel coordinates and are not responsive. This tool outputs CSS-based code using position: absolute and percentage values, so the clickable areas follow the image as it scales down.",
-      },
-      {
-        q: "Which image formats are supported?",
-        a: "PNG, JPG, SVG, WebP and any other image format your browser can display.",
-      },
-      {
-        q: "What area shapes can I use?",
-        a: "Rectangle (rect) and circle. Draw them by dragging, and you can move or resize them after they are created.",
-      },
-    ],
   },
 };
 
@@ -194,17 +157,6 @@ export function buildJsonLd(lang: Lang) {
             item: url,
           },
         ],
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: c.faq.map(({ q, a }) => ({
-          "@type": "Question",
-          name: q,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: a,
-          },
-        })),
       },
     ],
   };

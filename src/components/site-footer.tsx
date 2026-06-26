@@ -8,6 +8,8 @@ type Props = {
 // 言語別のフッター。SEO CHECK リンクは lang で出し分け（言語切替リンクはヘッダーに移動）。
 export function SiteFooter({ lang, dict }: Props) {
   const seoCheckUrl = lang === "ja" ? "https://seo.codequest.work/ja" : "https://seo.codequest.work/en";
+  // 使い方・FAQ ページは同一ツール内の内部リンク＝同一タブで遷移させる。
+  const howtoUrl = lang === "ja" ? "/generator/clickable-area/howto/" : "/generator/clickable-area/en/howto/";
 
   return (
     <footer className="border-t border-border py-4 mt-auto">
@@ -19,6 +21,9 @@ export function SiteFooter({ lang, dict }: Props) {
           </a>
         </p>
         <div className="flex items-center gap-4">
+          <a href={howtoUrl} className="text-base text-text-secondary hover:text-accent transition-colors">
+            {dict.footer.howtoLink}
+          </a>
           <a href={seoCheckUrl} target="_blank" rel="noopener" className="text-base text-text-secondary hover:text-accent transition-colors">
             {dict.footer.seoLink}
           </a>

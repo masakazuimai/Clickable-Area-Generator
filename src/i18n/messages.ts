@@ -39,6 +39,7 @@ export type Dict = {
     readonly mapMode: string;
   };
   readonly footer: {
+    readonly howtoLink: string;
     readonly seoLink: string;
     readonly generatorsLink: string;
   };
@@ -85,6 +86,7 @@ export const messages: Record<Lang, Dict> = {
       mapMode: "HTML Map",
     },
     footer: {
+      howtoLink: "📖 使い方・FAQ",
       seoLink: "CodeQuest.work SEO",
       generatorsLink: "その他のジェネレーター →",
     },
@@ -129,6 +131,7 @@ export const messages: Record<Lang, Dict> = {
       mapMode: "HTML Map",
     },
     footer: {
+      howtoLink: "📖 How to use & FAQ",
       seoLink: "CodeQuest.work SEO",
       generatorsLink: "More generators →",
     },
