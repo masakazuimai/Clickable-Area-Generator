@@ -22,9 +22,7 @@ export default function EnLayout({
       </head>
       <body className="grain bg-bg min-h-screen font-sans text-text">
         {children}
-        <div className="ad-wrap mx-auto my-8 text-center">
-          <AdUnit />
-        </div>
+        <AdUnit lang="en" />
         <SiteFooter lang={lang} dict={messages[lang]} />
       </body>
     </html>
