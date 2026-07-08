@@ -41,7 +41,7 @@ type SeoContent = {
 
 export const seo: Record<Lang, SeoContent> = {
   ja: {
-    siteName: "Clickable Area Generator | クリッカブルエリアジェネレーター",
+    siteName: "クリッカブルエリア ジェネレーター【無料】画像リンク領域をレスポンシブHTML化",
     description:
       "画像にクリッカブルエリアを設定してレスポンシブ対応HTMLコードを自動生成する無料ツール。矩形・円形のエリア指定、ドラッグ操作での移動・リサイズ、CSS方式のレスポンシブ出力に対応。アカウント登録不要。",
     keywords: ["クリッカブルエリア", "イメージマップ", "画像マップ", "ジェネレーター", "image map generator", "clickable area", "レスポンシブ", "HTML", "CSS", "無料ツール"],
