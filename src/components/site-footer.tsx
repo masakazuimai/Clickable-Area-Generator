@@ -13,7 +13,8 @@ export function SiteFooter({ lang, dict }: Props) {
 
   return (
     <footer className="border-t border-border py-4 mt-auto">
-      <div className="max-w-[1440px] mx-auto px-6 flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-between sm:gap-4 sm:text-left">
+      {/* 右下固定広告とリンクが被らないよう左寄せ（justify-between廃止） */}
+      <div className="max-w-[1440px] mx-auto px-6 flex flex-col items-center gap-3 text-center sm:flex-row sm:flex-wrap sm:justify-start sm:gap-4 sm:text-left">
         <p className="text-base text-text-tertiary">
           © {new Date().getFullYear()} Clickable Area Generator | Created by{" "}
           <a href="https://codequest.work/" target="_blank" rel="noopener" className="hover:text-accent transition-colors">
