@@ -5,7 +5,7 @@ type Props = {
   readonly dict: Dict;
 };
 
-// 言語別のフッター。SEO CHECK リンクは lang で出し分け（言語切替リンクはヘッダーに移動）。
+// 言語別のフッター。Direbase リンクは lang で出し分け（言語切替リンクはヘッダーに移動）。
 export function SiteFooter({ lang, dict }: Props) {
   const seoCheckUrl = lang === "ja" ? "https://seo.codequest.work/ja" : "https://seo.codequest.work/en";
   // 使い方・FAQ ページは同一ツール内の内部リンク＝同一タブで遷移させる。

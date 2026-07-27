@@ -87,7 +87,7 @@ export const messages: Record<Lang, Dict> = {
     },
     footer: {
       howtoLink: "📖 使い方・FAQ",
-      seoLink: "CodeQuest.work SEO",
+      seoLink: "Direbase",
       generatorsLink: "その他のジェネレーター →",
     },
   },
@@ -132,7 +132,7 @@ export const messages: Record<Lang, Dict> = {
     },
     footer: {
       howtoLink: "📖 How to use & FAQ",
-      seoLink: "CodeQuest.work SEO",
+      seoLink: "Direbase",
       generatorsLink: "More generators →",
     },
   },
