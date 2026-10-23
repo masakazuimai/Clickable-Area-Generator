@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 
+// 広告テスト（2026-10-24〜6週間）: 右下広告を停止中。全画面広告はlayoutのローダーで継続
+const AD_PAUSED = true;
+
 export function AdUnit({ lang = "ja" }: { lang?: "ja" | "en" }) {
   const adRef = useRef<HTMLModElement>(null);
   const pushed = useRef(false);
@@ -9,7 +12,7 @@ export function AdUnit({ lang = "ja" }: { lang?: "ja" | "en" }) {
   const isEn = lang === "en";
 
   useEffect(() => {
-    if (pushed.current) return;
+    if (AD_PAUSED || pushed.current) return;
     pushed.current = true;
     try {
       ((window as unknown as { adsbygoogle: unknown[] }).adsbygoogle =
@@ -18,6 +21,8 @@ export function AdUnit({ lang = "ja" }: { lang?: "ja" | "en" }) {
       // AdSense未ロード時は無視
     }
   }, []);
+
+  if (AD_PAUSED) return null;
 
   return (
     <div className={`footer-ad${closed ? " is-closed" : ""}`}>
