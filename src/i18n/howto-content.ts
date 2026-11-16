@@ -41,7 +41,7 @@ export const howtoContent: Record<Lang, HowtoContent> = {
     backToTool: "← ツールに戻る",
     breadcrumb: [
       { name: "CodeQuest", href: "https://codequest.work/" },
-      { name: "ジェネレーター", href: "https://codequest.work/category/generator/" },
+      { name: "ジェネレーター", href: "https://codequest.work/tools/" },
       { name: "Clickable Area Generator", href: "/generator/clickable-area/" },
       { name: "使い方・FAQ" },
     ],
@@ -133,7 +133,7 @@ export const howtoContent: Record<Lang, HowtoContent> = {
     backToTool: "← Back to the tool",
     breadcrumb: [
       { name: "CodeQuest", href: "https://codequest.work/" },
-      { name: "Generators", href: "https://codequest.work/category/generator/" },
+      { name: "Generators", href: "https://codequest.work/en/tools/" },
       { name: "Image Map Generator", href: "/generator/clickable-area/en/" },
       { name: "How to use" },
     ],

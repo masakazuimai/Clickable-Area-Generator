@@ -88,7 +88,7 @@ export const messages: Record<Lang, Dict> = {
     footer: {
       howtoLink: "📖 使い方・FAQ",
       seoLink: "Direbase",
-      generatorsLink: "その他のジェネレーター →",
+      generatorsLink: "その他のツール →",
     },
   },
   en: {
@@ -133,7 +133,7 @@ export const messages: Record<Lang, Dict> = {
     footer: {
       howtoLink: "📖 How to use & FAQ",
       seoLink: "Direbase",
-      generatorsLink: "More generators →",
+      generatorsLink: "More tools →",
     },
   },
 };

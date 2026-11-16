@@ -10,6 +10,7 @@ export function SiteFooter({ lang, dict }: Props) {
   const seoCheckUrl = lang === "ja" ? "https://seo.codequest.work/ja" : "https://seo.codequest.work/en";
   // 使い方・FAQ ページは同一ツール内の内部リンク＝同一タブで遷移させる。
   const howtoUrl = lang === "ja" ? "/generator/clickable-area/howto/" : "/generator/clickable-area/en/howto/";
+  const toolsListUrl = lang === "ja" ? "https://codequest.work/tools/" : "https://codequest.work/en/tools/";
 
   return (
     <footer className="border-t border-border py-4 mt-auto">
@@ -28,7 +29,7 @@ export function SiteFooter({ lang, dict }: Props) {
           <a href={seoCheckUrl} target="_blank" rel="noopener" className="text-base text-text-secondary hover:text-accent transition-colors">
             {dict.footer.seoLink}
           </a>
-          <a href="https://codequest.work/category/generator/" target="_blank" rel="noopener" className="text-base text-text-secondary hover:text-accent transition-colors">
+          <a href={toolsListUrl} target="_blank" rel="noopener" className="text-base text-text-secondary hover:text-accent transition-colors">
             {dict.footer.generatorsLink}
           </a>
         </div>

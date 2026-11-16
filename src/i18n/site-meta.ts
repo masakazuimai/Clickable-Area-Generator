@@ -36,6 +36,7 @@ type SeoContent = {
   readonly appAlternateName: string;
   readonly featureList: readonly string[];
   readonly breadcrumbGenerators: string;
+  readonly toolsListUrl: string;
   readonly breadcrumbCurrent: string;
 };
 
@@ -49,6 +50,7 @@ export const seo: Record<Lang, SeoContent> = {
     appAlternateName: "クリッカブルエリアジェネレーター",
     featureList: ["画像へのクリッカブルエリア設定", "矩形・円形のエリア指定", "ドラッグ操作でのエリア移動・リサイズ", "CSS方式のレスポンシブ対応コード出力", "HTML Map形式のコード出力", "画像サイズのリサイズ（アスペクト比固定）", "ワンクリックコピー"],
     breadcrumbGenerators: "ジェネレーター",
+    toolsListUrl: "https://codequest.work/tools/",
     breadcrumbCurrent: "Clickable Area Generator",
   },
   en: {
@@ -60,6 +62,7 @@ export const seo: Record<Lang, SeoContent> = {
     appAlternateName: "Clickable Area Generator",
     featureList: ["Draw clickable areas on any image", "Rectangle and circle shapes", "Move and resize areas by dragging", "Responsive CSS-based code output", "HTML image map (<map>) output", "Resize the image with a locked aspect ratio", "One-click copy"],
     breadcrumbGenerators: "Generators",
+    toolsListUrl: "https://codequest.work/en/tools/",
     breadcrumbCurrent: "Image Map Generator",
   },
 };
@@ -148,7 +151,7 @@ export function buildJsonLd(lang: Lang) {
             "@type": "ListItem",
             position: 2,
             name: c.breadcrumbGenerators,
-            item: "https://codequest.work/category/generator/",
+            item: c.toolsListUrl,
           },
           {
             "@type": "ListItem",

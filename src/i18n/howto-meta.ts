@@ -92,7 +92,7 @@ export function buildHowtoJsonLd(lang: Lang) {
             "@type": "ListItem",
             position: 2,
             name: c.breadcrumbGenerators,
-            item: "https://codequest.work/category/generator/",
+            item: c.toolsListUrl,
           },
           {
             "@type": "ListItem",
